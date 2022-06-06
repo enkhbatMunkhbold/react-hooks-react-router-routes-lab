@@ -1,5 +1,5 @@
 import React from "react";
-import { NavLink, Route, Switch } from "react-router-dom";
+import { Route, Switch } from "react-router-dom";
 import NavBar from "./NavBar";
 import Home from "./Home";
 import Actors from "./Actors";
@@ -10,18 +10,20 @@ function App() {
   return (
     <div>
       <NavBar />
-      <Route exact path="/">
-        <Home/>
-      </Route>
-      <Route exact path="/movies">
-        <Movies/>
-      </Route>
-      <Route exact path="/directors">
-        <Directors/>
-      </Route>
-      <Route exact path="/actors">
-        <Actors/>
-      </Route>
+      <Switch>
+        <Route path="/movies">
+          <Movies/>
+        </Route>
+        <Route path="/directors">
+          <Directors/>
+        </Route>
+        <Route path="/actors">
+          <Actors/>
+        </Route>
+        <Route exact path="/">
+          <Home/>
+        </Route>
+      </Switch>      
     </div>
   )
 }
